@@ -1,69 +1,62 @@
-import { projectData } from "./data.js";
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loyihalar | Mo'minov Muxsinbek</title>
+  <meta name="description" content="Mo'minov Muxsinbek: dasturchi. Loyihalar bo‘limi hozircha bo‘sh." />
+  <meta name="keywords" content="Mo'minov Muxsinbek, Portfolio, Loyihalar" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    /* Oddiy CSS, eski egasiga tegishli hech nima yo'q */
+    body {
+      margin: 0;
+      font-family: monospace;
+      background-color: #444;
+      color: #ddd;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      color: #7cfc11;
+    }
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    #footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #7cfc11;
+    }
+    #footer a {
+      color: #7cfc11;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    #footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
 
-const projects = document.querySelector(".project-temp");
+  <div class="container">
+    <h1>Loyihalar</h1>
+    <p>Hozircha loyihalar mavjud emas.</p>
+  </div>
 
-const filterBtn = document.querySelectorAll(".filter-btn");
+  <!-- Footer -->
+  <div id="footer">
+    <a href="/">Bosh sahifa</a>
+    <a href="./resume.html">Rezyume</a>
+  </div>
 
-function loadData(doc) {
-  const loader = document.querySelector(".loader");
-
-  loader.style.display = "none";
-
-  let project_card = document.createElement("div");
-  let projectName = document.createElement("h2");
-  let date = document.createElement("small");
-  let content = document.createElement("p");
-  let tags = document.createElement("small");
-  let btn = document.createElement("div");
-  let link = document.createElement("a");
-  let repo = document.createElement("a");
-
-  project_card.setAttribute("class", "project-description");
-  btn.setAttribute("class", "button");
-  repo.setAttribute("href", doc.repo);
-
-  projectName.textContent = doc.projectName;
-  date.textContent = doc.projectDate;
-  content.innerHTML = doc.projectDescription;
-  tags.innerHTML = "<b>Tech-Stack</b> : " + doc.tags.join(", ");
-  repo.textContent = "Repo";
-
-  if (doc.link) {
-    link.setAttribute("href", doc.link);
-    link.textContent = "Link";
-    btn.appendChild(link);
-  }
-
-  btn.appendChild(repo);
-
-  project_card.appendChild(projectName);
-  project_card.appendChild(date);
-  project_card.appendChild(content);
-  project_card.appendChild(tags);
-  project_card.appendChild(btn);
-
-  projects.appendChild(project_card);
-}
-
-function filterProjectByTags(tag) {
-  if (tag !== "All") {
-    return renderData(projectData.filter((doc) => doc.tags.includes(tag)));
-  } else {
-    return renderData(projectData);
-  }
-}
-
-function renderData(filteredData) {
-  projects.innerHTML = "";
-  filteredData.forEach((doc) => {
-    loadData(doc);
-  });
-}
-
-for (let i = 0; i < filterBtn.length; i++) {
-  filterBtn[i].addEventListener("click", function () {
-    filterProjectByTags(filterBtn[i].id);
-  });
-}
-
-filterProjectByTags("All");
+</body>
+</html>
