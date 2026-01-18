@@ -206,6 +206,21 @@ a:hover {
   text-decoration-color: #7cfc11;
 }
 
+/* --- PROFIL RASMI --- */
+#profile-container {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.round-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #7cfc11;
+}
+/* --- END PROFIL --- */
+
 @media (min-width: 1600px) {
   body {
     font-size: 18px;
